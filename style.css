@@ -1,0 +1,305 @@
+body{
+    font-family:sans-serif;/*書体*/
+    color: #333; /*文字色*/
+    line-height: 1.6; /*行間*/
+    background: #f9f9f9; /*背景色*/
+    margin: 0; /*初期の余白のリセット*/
+    padding: 0; /*初期の余白のリセット*/
+}
+
+/*初期デザインをリセット*/
+h1,h2,h3,p,ul,li{
+    margin: 0; /*外側の余白 なし */
+    padding: 0; /*内側の余白 なし */
+}
+
+/*リストの基礎デザインの変更*/
+ul{
+    list-style:none; /* リストのマークをなくす*/
+}
+
+a{
+    text-decoration: none; /*下線*/
+    color: inherit; /*文字色を地味に*/
+    transition: opacity 0.3s; /*指定した変化を時間をかけて行う*/
+}
+
+/* マウスが重なっている時のa */
+a:hover{
+    opacity: 0.7; /*透明度 0-1*/
+}
+
+img{
+    max-width:100%; /*どんなに大きくても親要素は超えない*/
+    height: auto; /*高さは自動*/
+    vertical-align:bottom; /*img要素独特の隙間をなくす*/
+}
+
+.container{
+    max-width: 1000px; /* 最大でも1000pxまで */
+    margin: 0 auto; /*余った外余白 上下0 左右均等に分配*/
+    padding: 0 20px; /*内側の余白 左右のみちょっとだけ*/
+}
+
+.section{
+    padding: 60px 0; /*上下に内余白 左右はなし*/
+}
+
+.section-title{
+    text-align: center; /*文字揃え*/
+    font-size: 2rem; /*文字サイズ 1remが普通の文字の標準*/
+    margin-bottom: 50px; /*下側の外余白*/
+    padding-bottom:15px; /*下側の内余白*/
+    position:relative;
+}
+
+/*.section-titleに対しての追加用*/
+.section-title::after{
+    content:"";
+    padding: absolute;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #4a90e2;
+}
+
+.section-lead{
+    text-align: center; /*文字揃え*/
+    margin-bottom: 40px; /*下余白*/
+    color: #666; /*文字色*/
+}
+
+header{
+    background: #fff; /*背景色*/
+    padding: 20px 0; /*内余白 上下20 左右0 */
+    box-shadow:0 2px 5px #0005; /*影*/
+    position:sticky; /*ポジション sticky⇒ついてくる*/
+    top: 0; /*sticky化した時、画面のどの位置にいるか*/
+    z-index:100; /*他の要素と重なった時の順序 数値が高い方が前面に表示される*/
+}
+
+/*特定の親の中の要素*/
+header .container{
+    display:flex; /*要素を横並び*/
+    justify-content: space-between;  /*端と端にいかせる*/
+    align-items: center; /*縦位置を真ん中に*/
+}
+
+.site-title {
+    font-size: 1.2rem; /*文字サイズを普通の文字の1.2番*/
+    font-weight: bold; /*文字の太さ*/
+}
+
+.nav-list{
+    display:flex; /*要素を横並び*/
+    gap:30px; /*横並びにした要素の隙間を指定*/
+}
+
+.nav-list a{
+    font-size: 0.9rem; /*文字サイズ少し小さめ*/
+    font-weight: bold; /*太字*/
+}
+
+.hero{
+    background: #eaf3fc; /*背景色*/
+    padding: 80px 0; /*内余白 上下だけ*/
+    display:flex;  /*子要素を横並び ここでは直接的な効果がない*/
+    align-items: center; /*上下位置を中央ぞろえ*/
+}
+
+.hero-inner{
+    display: flex; /*横並び*/
+    justify-content: space-between; /*端と端*/
+    align-items: center; /*上下位置を中央*/
+    gap:40px;
+}
+
+.hero-inner h2{
+    font-size: 2.2rem; /*文字サイズ 2.2倍*/
+    line-height: 1.4; /*行間*/
+    margin-bottom: 20px; /*下余白*/
+    color: #2c3e50;/*文字色*/
+}
+
+.hero-text p{
+    font-size: 1.1rem; /*文字サイズ 1.1倍*/
+    color: #555;/*文字色*/
+}
+
+.hero-image{
+    flex-shrink:0; /*画像が縮まないようにする*/
+    background: #aaddde; /*赤　緑　青　00～ff*/
+    width: 200px; /*幅*/
+    height: 200px; /*高さ*/
+    border-radius: 50%; /*角を丸くする 50％は正方形がまん丸*/
+    overflow:hidden; /*はみ出した画像をうまくおさめる*/
+    border:5px solid #fff; /*枠線*/
+    box-shadow:0 3px 10px #000f; /*影*/
+}
+
+/*imgも親要素hero-imageクラスと同じ大きさまで広がる*/
+.hero-image{
+    width: 100%;
+    height: 100%;
+}
+
+
+main{
+    background: #fff; /*背景色*/
+    padding-top: 40px;/*上側の内余白*/
+    padding-bottom:60px;/*下側の内余白*/
+    margin-top: -30px; /*位置微調整*/
+    border-radius: 10px; /*角を丸く*/
+    position:relative;
+    z-index:1;
+    margin-bottom: 60px; /*下側の外余白*/
+}
+
+.about-content{
+    display: flex; /*横並び*/
+    gap:40px; /*隙間を設定*/
+    align-items: center; /*縦位置を調整*/
+}
+
+.job-title{
+    color: #4a90e2; /*文字色*/
+    font-weight: bold; /*太字*/
+    margin-bottom: 20px; /*下の外余白*/
+    font-size: 0.9rem; /*文字サイズ小さめ*/
+}
+
+.skills-grid{
+    display: grid; /*指定した領域に線を引く*/
+    /*最小でも300pxずつの幅で横並び、余るようなら1:1:1で広がる
+    おさまらなければ縦に折り返していく*/
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap:30px; /*余白*/
+}
+
+.skill-card{
+    background: #f4f7f9; /*背景*/
+    padding: 30px; /*うち余白*/
+    border-radius: 8px; /*角を丸くする*/
+    border-left: 5px solid #4a90e2; /*左側の枠線*/
+}
+
+.skill-card ul{
+    font-size: 0.95rem; /*文字サイズ*/
+    line-height: 1.8; /*行間*/
+}
+
+.works-grid{
+    display: flex; /*横並び*/
+    flex-direction: column; /*強制縦並び*/
+    gap:30px; /*隙間*/
+}
+
+.work-item{
+    display: flex; /*横並び*/
+    gap:20px; /*隙間*/
+    border: 1px solid #eee; /*うっすら枠線*/
+    border-radius: 8px; /*角を丸く*/
+    overflow:hidden; /*はみ出した要素をカット 微調整*/
+    background: #fff; /*背景色*/
+    box-shadow: 1px 1px 2px 2px #0003; /*影*/
+}
+
+.work-img-placeholder{
+    width:200px; /*幅*/
+    background: #0bd; /*背景色*/
+    /*位置調整用 要素を左右中央ぞろえ*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777; /*文字色*/
+    font-size: 0.9rem; /*文字サイズ*/
+}
+
+.work-tag{
+    font-size: 0.8rem; /*文字サイズ*/
+    color: #4a90e2;  /*文字色*/
+    background: #8af3fc; /*背景*/
+    padding: 2px 8px; /*うち余白*/
+    border-radius: 4px; /*角を丸く*/
+    display:inline-block; /*横の大きさを要素に合わせる*/
+    margin-bottom: 10px; /*下の外余白*/
+}
+
+.work-info{
+    padding:10px 18px; /*内側の余白*/
+}
+
+.work-info p{
+    font-size: 0.9rem; /*文字サイズ*/
+    margin-bottom: 10px; /*下の外余白*/
+}
+
+.btn-small{
+    background: #4a90e2; /*背景色*/
+    display:inline-block; /*幅調整ができるように*/
+    color: #fff; /*文字色*/
+    padding: 5px 15px; /*内側の余白*/
+    font-size: 0.85rem; /*文字サイズ*/
+    border-radius: 4px; /*角を丸く*/
+}
+
+footer{
+    background: #333;/*背景*/
+    color: #fff; /*文字色*/
+    text-align: center;/*中央ぞろえ*/
+    padding: 30px 0; /*内側余白 上下のみ*/
+    font-size: 0.8rem; /*文字サイズ 標準の0.8倍*/
+}
+
+.note{
+    margin-top: 10px; /*上側の外余白*/
+    color: #aaa; /*文字色*/
+    font-size: 0.75rem;/*文字の大きさをさらに小さめ*/
+}
+
+
+
+/* レスポンシブデザイン */
+/* 画面が最大でも768pxまで＝画面が小さい時のデザイン */
+@media(max-width:768px){
+    .section-title{
+        font-size: 1.7rem;
+        margin-bottom: 30px;
+    }
+
+    .nav-list{
+        gap:15px;
+        /*強制横並びflexの中でも折り返し可とする*/
+        flex-wrap:wrap;
+        justify-content: center;
+    }
+
+    header .container{
+        /* flexで横並びにしていた⇒強制縦並びに戻す */
+        flex-direction: column;
+        gap:10px;
+    }
+
+    .hero{
+        padding: 40px 0;
+    }
+
+    .hero-inner{
+        /* 強制縦並びにしつつ、並び順を逆転 */
+        flex-direction: column-reverse;
+        text-align: center;
+        gap:20px;
+    }
+
+    /* 特定のクラスの中のh2だけに指定を絞る */
+    .hero-text h2{
+        font-size: 1.6rem;
+    }
+
+    .hero-image{
+        width: 150px;
+        height: 150px;
+    }
+}
